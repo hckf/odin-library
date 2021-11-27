@@ -1,117 +1,71 @@
 <!DOCTYPE html>
-<html lang='en'>
-<head>
-    <meta charset='UTF-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <link rel='stylesheet' href='style.css'/>
-    <script src='script.js' defer></script>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
     <title>Test Environment</title>
-</head>
-<body>
-    <div class='modal' id='modal'>
-        <div class='modal-window'>
-            <div class='modal-textarea'>
-                <label for='book-name' class='modal-label'>Book Name</label>
-                <input type='text' id='book-name' class='modal-textbox'/>
-                <label for='book-author' class='modal-label'>Author</label>
-                <input type='text' id='book-author' class='modal-textbox'/>
-                <label for='page-number' class='modal-label'>Page Number</label>
-                <input type='text' id='page-number' class='modal-textbox'/>
-            </div>
-            <div class='modal-btns'>
-                <button class='modal-btn' id='confirm-add' type='button'>ADD BOOK</button>
-                <button class='modal-btn' id='close-modal' type='button'>CLOSE</button>
-            </div>
+  </head>
+  <body>
+    <div class="modal" id="modal">
+      <div class="modal-window">
+        <div class="modal-textarea">
+          <label for="book-name" class="modal-label">Book Name</label>
+          <input
+            type="text"
+            id="book-name"
+            class="modal-textbox"
+            maxlength="100"
+            placeholder="100 characters or less!"
+          />
+          <label for="book-author" class="modal-label">Author</label>
+          <input
+            type="text"
+            id="book-author"
+            class="modal-textbox"
+            maxlength="50"
+            placeholder="50 characters or less!"
+          />
+          <label for="page-number" class="modal-label">Number of Pages</label>
+          <input type="number" id="page-number" class="modal-textbox" />
         </div>
+        <div class="modal-btns">
+          <button class="modal-btn" id="confirm-add" type="button">
+            ADD BOOK
+          </button>
+          <button class="modal-btn" id="close-modal" type="button">
+            CLOSE
+          </button>
+        </div>
+      </div>
     </div>
-    <div class='container'>
-        <div class='header'>
-            <h1 class='vertical-center'>LIBRARY</h1>
-            <div class='header-btns'>
-                <button class='header-btn' id='log-in' type='button'>LOG IN (WIP)</button>
-                <button class='header-btn' id='add-book' type='button'>ADD BOOK</button>
-            </div>
+    <div class="container">
+      <div class="header">
+        <h1 class="vertical-center">LIBRARY</h1>
+        <div class="header-btns">
+          <button class="header-btn" id="log-in" type="button">
+            LOG IN (WIP)
+          </button>
+          <button class="header-btn" id="add-book" type="button">
+            ADD BOOK
+          </button>
         </div>
-        <div class='body'>
-            <div class='book-card'>
-                <div class='card-info'>
-                    <h3 class='book-info' id='book-title'>Name</h3>
-                    <h3 class='book-info' id='book-author'>Author</h3>
-                    <h3 class='book-info' id='book-pages'>Pages</h3>
-                </div>
-                <div class='card-btns'>
-                    <button class='card-btn read-btn' id='read-card'>UNREAD</button>
-                    <button class='card-btn remove-btn' id='remove-card'>REMOVE</button>
-                </div>
-            </div>
-            <div class='book-card'>
-                <div class='card-info'>
-                    <h3 class='book-info' id='book-title'>Name</h3>
-                    <h3 class='book-info' id='book-author'>Author</h3>
-                    <h3 class='book-info' id='book-pages'>Pages</h3>
-                </div>
-                <div class='card-btns'>
-                    <button class='card-btn read-btn' id='read-card'>UNREAD</button>
-                    <button class='card-btn remove-btn' id='remove-card'>REMOVE</button>
-                </div>
-            </div>
-            <div class='book-card'>
-                <div class='card-info'>
-                    <h3 class='book-info' id='book-title'>Name</h3>
-                    <h3 class='book-info' id='book-author'>Author</h3>
-                    <h3 class='book-info' id='book-pages'>Pages</h3>
-                </div>
-                <div class='card-btns'>
-                    <button class='card-btn read-btn' id='read-card'>UNREAD</button>
-                    <button class='card-btn remove-btn' id='remove-card'>REMOVE</button>
-                </div>
-            </div>
-            <div class='book-card'>
-                <div class='card-info'>
-                    <h3 class='book-info' id='book-title'>Name</h3>
-                    <h3 class='book-info' id='book-author'>Author</h3>
-                    <h3 class='book-info' id='book-pages'>Pages</h3>
-                </div>
-                <div class='card-btns'>
-                    <button class='card-btn read-btn' id='read-card'>UNREAD</button>
-                    <button class='card-btn remove-btn' id='remove-card'>REMOVE</button>
-                </div>
-            </div>
-            <div class='book-card'>
-                <div class='card-info'>
-                    <h3 class='book-info' id='book-title'>Name</h3>
-                    <h3 class='book-info' id='book-author'>Author</h3>
-                    <h3 class='book-info' id='book-pages'>Pages</h3>
-                </div>
-                <div class='card-btns'>
-                    <button class='card-btn read-btn' id='read-card'>UNREAD</button>
-                    <button class='card-btn remove-btn' id='remove-card'>REMOVE</button>
-                </div>
-            </div>
-            <div class='book-card'>
-                <div class='card-info'>
-                    <h3 class='book-info' id='book-title'>Name</h3>
-                    <h3 class='book-info' id='book-author'>Author</h3>
-                    <h3 class='book-info' id='book-pages'>Pages</h3>
-                </div>
-                <div class='card-btns'>
-                    <button class='card-btn read-btn' id='read-card'>UNREAD</button>
-                    <button class='card-btn remove-btn' id='remove-card'>REMOVE</button>
-                </div>
-            </div>
-            <div class='book-card'>
-                <div class='card-info'>
-                    <h3 class='book-info' id='book-title'>Name</h3>
-                    <h3 class='book-info' id='book-author'>Author</h3>
-                    <h3 class='book-info' id='book-pages'>Pages</h3>
-                </div>
-                <div class='card-btns'>
-                    <button class='card-btn read-btn' id='read-card'>UNREAD</button>
-                    <button class='card-btn remove-btn' id='remove-card'>REMOVE</button>
-                </div>
-            </div>
-        </div>
+      </div>
+      <div class="body" id="page-body">
+        <!-- <div class="book-card">
+          <div class="card-info">
+            <h3 class="book-info" id="book-title">Name</h3>
+            <h3 class="book-info" id="book-author">Author</h3>
+            <h3 class="book-info" id="book-pages">Pages</h3>
+          </div>
+          <div class="card-btns">
+            <button class="card-btn read-btn" id="read-card">UNREAD</button>
+            <button class="card-btn remove-btn" id="remove-card">REMOVE</button>
+          </div>
+        </div> -->
+      </div>
     </div>
-</body>
+  </body>
 </html>
