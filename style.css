@@ -9,7 +9,7 @@
 
 body {
   background-color: #0a100d;
-  display: block;
+  /* display: block; */
   height: 100%;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
@@ -20,23 +20,22 @@ h1 {
 }
 
 p {
-  font-size: 2vw;
   overflow: auto;
   white-space: normal;
   word-break: break-all;
 }
 
 .body {
-  display: flex;
-  flex-wrap: wrap;
+  /* display: flex;
+  flex-wrap: wrap; */
   height: auto;
-  justify-content: space-around;
+  /* justify-content: space-around; */
   width: 100%;
 }
 
 .book-card {
   align-items: center;
-  background-color: #d6d5c9;
+  background-color: #fff;
   border: 2px solid #0a100d;
   border-radius: 10px;
   display: flex;
@@ -44,7 +43,7 @@ p {
   justify-content: center;
   height: 18rem;
   margin: 1rem 1rem;
-  padding: 1rem;
+  /* padding: 1rem; */
   position: relative;
   text-align: center;
   width: 14rem;
@@ -52,6 +51,8 @@ p {
 
 .card-info {
   align-items: center;
+  background-color: #fff;
+  border-radius: 8px 8px 0 0;
   display: flex;
   font-size: small;
   flex-direction: column;
@@ -65,17 +66,21 @@ p {
 }
 
 .card-btn {
-  background-color: #a22c29;
-  border: 2px solid #0a100d;
+  background-color: #0e86d4;
+  border: 1px solid #0a100d;
   border-radius: 4px;
   box-sizing: border-box;
+  color: #fff;
+  font-weight: 700;
   height: 60%;
   padding: 0;
-  width: 45%;
+  width: 40%;
 }
 
 .card-btns {
   align-items: center;
+  background-color: #68bbe3;
+  border-radius: 0 0 8px 8px;
   display: flex;
   height: 20%;
   justify-content: space-evenly;
@@ -83,14 +88,8 @@ p {
   width: 100%;
 }
 
-.card-info {
-  overflow: visible;
-  white-space: normal;
-  word-wrap: break-word;
-}
-
 .container {
-  background-color: #b9baa3;
+  background-color: #68bbe3;
   height: 100%;
   left: 15%;
   position: absolute;
@@ -100,7 +99,8 @@ p {
 
 .header {
   align-items: center;
-  background-color: #902923;
+  background-color: #003060;
+  color: #fff;
   display: flex;
   flex-direction: row;
   height: 10%;
@@ -112,13 +112,31 @@ p {
 }
 
 .header-btn {
-  background-color: #b9baa3;
+  background-color: #0e86d4;
   border: 2px solid #0a100d;
   border-radius: 4px;
+  color: #fff;
   float: right;
+  font-weight: 700;
   height: 2.5rem;
   margin-right: 1rem;
   width: 6rem;
+}
+
+.info-cont {
+  align-items: center;
+  background-color: lightgray;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  font-size: large;
+  height: 100%;
+  justify-content: center;
+  overflow: visible;
+  margin: 4%;
+  white-space: normal;
+  width: 90%;
+  word-wrap: break-word;
 }
 
 .modal {
@@ -135,10 +153,12 @@ p {
 }
 
 .modal-btn {
-  background-color: #a22c29;
+  background-color: #0e86d4;
   border: 2px solid #0a100d;
   border-radius: 4px;
   box-sizing: border-box;
+  color: #fff;
+  font-weight: 700;
   height: 60%;
   margin: 1.5rem;
   width: 45%;
@@ -184,7 +204,7 @@ p {
 }
 
 .modal-textbox {
-  background-color: #d6d5c9;
+  background-color: #fff;
   border: 2px solid #0a100d;
   border-radius: 4px;
   height: 3rem;
@@ -193,8 +213,12 @@ p {
   width: 82%;
 }
 
+.modal-textbox::placeholder {
+  color: #0a100d;
+}
+
 .modal-window {
-  background-color: #b9baa3;
+  background-color: #fff;
   border: 2px solid #0a100d;
   border-radius: 10px;
   height: 24rem;
@@ -203,6 +227,12 @@ p {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 20rem;
+}
+
+#page-body {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  /* grid-template-columns: repeat(4, 1fr); */
 }
 
 /* .vertical-center {

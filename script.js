@@ -15,13 +15,13 @@ function Book(title, author, pages, read) {
 // let hobbitBook = new Book('The Hobbit', 'J. R. R. Tolkien', 300, 'unread');
 // console.log(hobbitBook.info());
 
-function addBookToLibrary() {}
-
 function addCard() {
+  // Get info submitted through the modal window
   let bookName = document.getElementById("book-name");
   let bookAuth = document.getElementById("book-author");
   let bookPage = document.getElementById("page-number");
 
+  // Verify submitted info length
   if (bookName.value.length > 100 || bookAuth.value.length > 50) {
   } else {
     let newBook = new Book(
@@ -33,11 +33,7 @@ function addCard() {
     myLibrary.push(newBook);
     console.log(myLibrary);
 
-    // Create new book card elements for the page
-    let pageBody = document.getElementById("page-body");
-    let newCard = document.createElement("div");
-    let cardInfo = document.createElement("div");
-
+    // Create new book card elements for the page from the info submitted
     let bookTitle = document.createElement("p");
     let bookTitleText = document.createTextNode(bookName.value);
     bookTitle.appendChild(bookTitleText);
@@ -50,44 +46,49 @@ function addCard() {
     let bookPageText = document.createTextNode("Pages: " + bookPage.value);
     bookPages.appendChild(bookPageText);
 
-    let cardButtons = document.createElement("div");
-    let readButton = document.createElement("button");
-    let removeButton = document.createElement("button");
-
+    // Get page-body (main container) div, create new card div
+    let pageBody = document.getElementById("page-body");
+    let newCard = document.createElement("div");
     pageBody.appendChild(newCard);
     newCard.classList.add("book-card");
+
+    // Card Info and Info Container divs
+    let cardInfo = document.createElement("div");
+    let infoCont = document.createElement("div");
     newCard.appendChild(cardInfo);
     cardInfo.classList.add("card-info");
-    cardInfo.appendChild(bookTitle);
+    cardInfo.appendChild(infoCont);
+    infoCont.classList.add("info-cont");
+    infoCont.appendChild(bookTitle);
     bookTitle.classList.add("book-info", "book-title");
-    cardInfo.appendChild(bookAuthor);
+    infoCont.appendChild(bookAuthor);
     bookAuthor.classList.add("book-info", "book-author");
-    cardInfo.appendChild(bookPages);
+    infoCont.appendChild(bookPages);
     bookPages.classList.add("book-info", "book-pages");
+
+    // Card Buttons Div
+    let cardButtons = document.createElement("div");
     newCard.appendChild(cardButtons);
     cardButtons.classList.add("card-btns");
+
+    // Read Button
+    let readButton = document.createElement("button");
     cardButtons.appendChild(readButton);
+    readButton.style.backgroundColor = "#a22c29";
     readButton.classList.add("card-btn", "read-btn");
     let readBtnText = document.createTextNode("UNREAD");
     readButton.appendChild(readBtnText);
-    readButton.addEventListener("click", function () {
-      if (readButton.innerHTML == "UNREAD") {
-        readButton.style.backgroundColor = "darkgreen";
-        readButton.innerHTML = "READ";
-      } else {
-        readButton.style.backgroundColor = "#a22c29";
-        readButton.innerHTML = "UNREAD";
-      }
-    });
+    readButton.addEventListener("click", () => readStatusChange(readButton));
 
+    // Remove Button
+    let removeButton = document.createElement("button");
     cardButtons.appendChild(removeButton);
     removeButton.classList.add("card-btn", "remove-btn");
     let removeBtnText = document.createTextNode("REMOVE");
     removeButton.appendChild(removeBtnText);
-    removeButton.addEventListener("click", function () {
-      removeCard(readButton);
-    });
+    removeButton.addEventListener("click", () => removeCard(removeButton));
 
+    // Clear modal window values
     bookName.value = "";
     bookAuth.value = "";
     bookPage.value = "";
@@ -95,15 +96,24 @@ function addCard() {
 }
 
 function readStatusChange(e) {
-  if (e.innerHTML == "UNREAD") {
-    e.read = true;
-    e.style.backgroundColor = "darkgreen";
-    e.innerHTML = "READ";
-  } else {
-    e.read = false;
-    e.style.backgroundColor = "#a22c29";
-    e.innerHTML = "UNREAD";
+  let bookTitle = e.parentNode.parentNode.querySelector("p");
+  let bookObj = myLibrary.filter((e) => {
+    return e.title == bookTitle.innerHTML;
+  });
+  let bookIndex = myLibrary.findIndex((bookObj) => bookObj.title);
+  console.log(bookIndex);
+  if (bookIndex > -1) {
+    if (e.innerHTML == "UNREAD") {
+      myLibrary[bookIndex].read = true;
+      e.style.backgroundColor = "darkgreen";
+      e.innerHTML = "READ";
+    } else {
+      myLibrary[bookIndex].read = false;
+      e.style.backgroundColor = "#a22c29";
+      e.innerHTML = "UNREAD";
+    }
   }
+  console.log(myLibrary);
 }
 
 function removeCard(e) {
